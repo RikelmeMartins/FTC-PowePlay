@@ -58,6 +58,7 @@ public class Autonomo1 extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+
         motoref  = hardwareMap.get(DcMotor.class, "ef");
         motoret  = hardwareMap.get(DcMotor.class, "et");
         motordf = hardwareMap.get(DcMotor.class, "df");
@@ -89,7 +90,7 @@ public class Autonomo1 extends LinearOpMode {
         telemetry.update();
 
 
-        drive(-1000, 1000,-1000,1000, 1);
+        drive(1000, 1000,1000,1000, 1);
         drive(-1000, 1000,1000,-1000,1);
 
 

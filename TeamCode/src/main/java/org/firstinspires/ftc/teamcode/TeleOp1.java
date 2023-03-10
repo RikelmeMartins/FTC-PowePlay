@@ -5,7 +5,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
-@TeleOp(name="TeleOp2023_erberto", group="Linear Opmode")
+
+@TeleOp(name="TeleOp2023", group="Linear Opmode")
 
 public class TeleOp1 extends LinearOpMode {
 
@@ -16,16 +17,18 @@ public class TeleOp1 extends LinearOpMode {
     private DcMotor garra = null;
     private Servo coletor = null;
     TouchSensor sensor_toque;
-    int upPositionH = 3000;
-    int upPositionM = 2450;
-    int upPositionL = 1450;
-    int upPositionG = -500;
+    int upPositionH = 4420;
+    int upPositionM = 3330;
+    int upPositionL = 2030;
     int position;
     int erro;
     double kp = 0.02;
     double power;
+    Boolean manual = Boolean.FALSE;
+
     @Override
     public void runOpMode() {
+
         motoref = hardwareMap.get(DcMotor.class, "ef");
         motoret = hardwareMap.get(DcMotor.class, "et");
         motordf = hardwareMap.get(DcMotor.class, "df");
@@ -39,9 +42,11 @@ public class TeleOp1 extends LinearOpMode {
         motordt.setDirection(DcMotor.Direction.FORWARD);
         garra.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         garra.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
         while (garra.getCurrentPosition() != 0) {
             idle();
         }
+
         garra.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         coletor.setPosition(1);
         telemetry.addData("Status", "Initialized");
@@ -49,6 +54,9 @@ public class TeleOp1 extends LinearOpMode {
         waitForStart();
         while (opModeIsActive()) {
 //-------------------------------MOBILIDADE------------------------------------------------
+            telemetry.addData("Garra", garra.getCurrentPosition());
+            telemetry.update();
+
             double max;
 
             double y = gamepad1.left_stick_y;
@@ -73,48 +81,55 @@ public class TeleOp1 extends LinearOpMode {
             motordf.setPower(motordfP);
             motoret.setPower(motoretP);
             motordt.setPower(motordtP);
-//-------------------------------MOBILIDADE GARRA------------------------------------------------
-            if (sensor_toque.isPressed()) {
-                garra.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-                garra.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-                garra.setPower(0);
-                telemetry.addData("Encoder resetado!", "1");
-                telemetry.update();
+
+//-------------------------------MOBILIDADE GARRA------------------------------------------------MovimentacaoMovimentacao
+
+            /*if (gamepad2.dpad_left) {
+                manual = Boolean.FALSE;
             }
-//Opções de Altura da Garra
-            if (gamepad2.y) {//Junção Alta
-                position = garra.getCurrentPosition();
-                erro = position - (3000);
-                garra.setTargetPosition(upPositionH);
-                garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            if (gamepad2.dpad_right) {
+                manual = Boolean.TRUE;
             }
-            if (gamepad2.b){ //Junção media
-                position = garra.getCurrentPosition();
-                erro = position - (2450);
-                garra.setTargetPosition(upPositionM);
-                garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            }
-            if (gamepad2.x) { //Junção baixa
-                position = garra.getCurrentPosition();
-                erro = position - (1450);
-                garra.setTargetPosition(upPositionL);
-                garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            }
-            if (gamepad2.a) {
-                garra.setTargetPosition(0);
-                garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                garra.setPower(0.4);
-            }
-            power = erro * kp;
-            if (garra.isBusy()) {
-                garra.setPower(power);
-            }
+            */
+
+                if (sensor_toque.isPressed()) {
+                    garra.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                    garra.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+                    garra.setPower(0);
+                    telemetry.addData("Encoder resetado!", "1");
+                    telemetry.update();
+                }
+                //Opções de Altura da Garra
+                if (gamepad2.y) {//Junção Alta
+                    position = garra.getCurrentPosition();
+                    erro = position - (4420);
+                    garra.setTargetPosition(upPositionH);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                } else if (gamepad2.b) { //Junção media
+                    position = garra.getCurrentPosition();
+                    erro = position - (3330);
+                    garra.setTargetPosition(upPositionM);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                } else if (gamepad2.x) { //Junção baixa
+                    position = garra.getCurrentPosition();
+                    erro = position - (2030);
+                    garra.setTargetPosition(upPositionL);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                } else if (gamepad2.a) {
+                    garra.setTargetPosition(-5);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    garra.setPower(0.4);
+                }
+                power = erro * kp;
+                if (garra.isBusy()) {
+                    garra.setPower(power);
+                }
 
             if(gamepad2.left_bumper){
                 coletor.setPosition(1);
                 sleep(200);
             }
-            else if(gamepad2.right_bumper){
+            if(gamepad2.right_bumper){
                 coletor.setPosition(0);
                 sleep(200);
             }

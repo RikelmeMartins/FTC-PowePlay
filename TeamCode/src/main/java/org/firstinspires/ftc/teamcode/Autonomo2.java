@@ -22,7 +22,7 @@ public class Autonomo2 extends LinearOpMode {
 
     private ElapsedTime     runtime = new ElapsedTime();
 
-    static final double     COUNTS_PER_MOTOR_REV    = 28.0 ;
+    static final double     COUNTS_PER_MOTOR_REV    = 1440 ;
     static final double     DRIVE_GEAR_REDUCTION    = 30.24 ;
     static final double     WHEEL_CIRCUMFERENCE_MM = 90.0 ;
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -64,7 +64,6 @@ public class Autonomo2 extends LinearOpMode {
         waitForStart();
 
         encoderDrive(DRIVE_SPEED,  20,  20, 20, 20,5.0);
-        encoderDrive(TURN_SPEED,   12, -12, 12, -12, 4.0);
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
@@ -87,8 +86,8 @@ public class Autonomo2 extends LinearOpMode {
             newRightTarget = motoret.getCurrentPosition() + (int)(motoretT * COUNTS_PER_INCH);
             motordf.setTargetPosition(newLeftTarget1);
             motordt.setTargetPosition(newRightTarget1);
-            motoref.setTargetPosition(newLeftTarget1);
-            motoret.setTargetPosition(newRightTarget1);
+            motoref.setTargetPosition(newLeftTarget);
+            motoret.setTargetPosition(newRightTarget);
 
 
             motordf.setMode(DcMotor.RunMode.RUN_TO_POSITION);
