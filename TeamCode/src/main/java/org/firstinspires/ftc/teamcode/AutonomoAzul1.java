@@ -11,12 +11,11 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 
 @Autonomous(name="AutonomoAzulEsquerda", group="Linear Opmode")
-public class AutonomoVermelho extends LinearOpMode {
+public class AutonomoAzul1 extends LinearOpMode {
 
     private DcMotor motoref = null;
     private DcMotor motoret = null;
