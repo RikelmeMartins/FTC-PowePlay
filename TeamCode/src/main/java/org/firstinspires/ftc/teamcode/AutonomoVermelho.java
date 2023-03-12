@@ -40,8 +40,8 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 
-@Autonomous(name="AutonomoAzul", group="Linear Opmode")
-public class AutonomoAzul extends LinearOpMode {
+@Autonomous(name="AutonomoVermelho", group="Linear Opmode")
+public class AutonomoVermelho extends LinearOpMode {
 
     private Runtime time = null;
     private DcMotor motoref = null;
@@ -74,7 +74,6 @@ public class AutonomoAzul extends LinearOpMode {
         coletor = hardwareMap.get(Servo.class, "servo_garra");
         sensor_toque = hardwareMap.get(TouchSensor.class, "sensor_toque");
         sensor_cor = hardwareMap.get(RevColorSensorV3.class, "sensor_cor");
-
 
         motoref.setDirection(DcMotor.Direction.REVERSE);
         motoret.setDirection(DcMotor.Direction.REVERSE);
@@ -156,8 +155,8 @@ public class AutonomoAzul extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-165 * COUNTS_PER_MM);
-                direitaTarget = (int) (165 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (165 * COUNTS_PER_MM);
+                direitaTarget = (int) (-165 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -171,10 +170,10 @@ public class AutonomoAzul extends LinearOpMode {
                 motordf.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordt.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-                motordf.setPower(-LTPS * 0.3);
+                motordf.setPower(LTPS * 0.3);
                 motordt.setPower(RTPS * 0.3);
                 motoref.setPower(LTPS * 0.3);
-                motoret.setPower(-RTPS * 0.3);
+                motoret.setPower(RTPS * 0.3);
 
                 while (opModeIsActive() && (motordf.isBusy() && motordt.isBusy() && motoref.isBusy() && motoret.isBusy())) {
                     telemetry.addData("motordf:", motordf.getCurrentPosition());
@@ -424,8 +423,8 @@ public class AutonomoAzul extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-165 * COUNTS_PER_MM);
-                direitaTarget = (int) (165 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (165 * COUNTS_PER_MM);
+                direitaTarget = (int) (-165 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -650,8 +649,8 @@ public class AutonomoAzul extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-165 * COUNTS_PER_MM);
-                direitaTarget = (int) (165 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (165 * COUNTS_PER_MM);
+                direitaTarget = (int) (-165 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -815,8 +814,8 @@ public class AutonomoAzul extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (120 * COUNTS_PER_MM);
-                direitaTarget = (int) (-120 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-108 * COUNTS_PER_MM);
+                direitaTarget = (int) (108 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 

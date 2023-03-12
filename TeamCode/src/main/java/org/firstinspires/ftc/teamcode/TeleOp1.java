@@ -84,14 +84,6 @@ public class TeleOp1 extends LinearOpMode {
 
 //-------------------------------MOBILIDADE GARRA------------------------------------------------MovimentacaoMovimentacao
 
-            /*if (gamepad2.dpad_left) {
-                manual = Boolean.FALSE;
-            }
-            if (gamepad2.dpad_right) {
-                manual = Boolean.TRUE;
-            }
-            */
-
                 if (sensor_toque.isPressed()) {
                     garra.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                     garra.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -116,10 +108,31 @@ public class TeleOp1 extends LinearOpMode {
                     garra.setTargetPosition(upPositionL);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 } else if (gamepad2.a) {
-                    garra.setTargetPosition(-5);
+                    garra.setTargetPosition(-15);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     garra.setPower(0.4);
+                } else if (gamepad2.dpad_up) {
+                    position = garra.getCurrentPosition();
+                    erro = position - (750);
+                    garra.setTargetPosition(750);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                } else if (gamepad2.dpad_right) {
+                    position = garra.getCurrentPosition();
+                    erro = position - (600);
+                    garra.setTargetPosition(600);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                } else if (gamepad2.dpad_down) {
+                    position = garra.getCurrentPosition();
+                    erro = position - (400);
+                    garra.setTargetPosition(400);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                } else if (gamepad2.dpad_left) {
+                    position = garra.getCurrentPosition();
+                    erro = position - (200);
+                    garra.setTargetPosition(200);
+                    garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 }
+
                 power = erro * kp;
                 if (garra.isBusy()) {
                     garra.setPower(power);
