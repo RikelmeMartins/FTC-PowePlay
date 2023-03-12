@@ -60,7 +60,7 @@ public class TeleOp1 extends LinearOpMode {
 
             double y = gamepad1.left_stick_y;
             double x = gamepad1.left_stick_x;
-            double eixo = gamepad1.right_stick_x;
+            double eixo = gamepad1.right_stick_x  * 0.8;
 
             double motoretP = y + x + eixo;
             double motordtP = y - x - eixo;

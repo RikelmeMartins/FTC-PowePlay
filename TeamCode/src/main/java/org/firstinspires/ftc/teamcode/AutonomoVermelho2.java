@@ -110,7 +110,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
                 garra.setPower(0.8);
             }
 
-            //rotate(90, 1);
+
             motordf.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             motordt.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -118,8 +118,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
             int esquerdaTarget = (int) (-650 * COUNTS_PER_MM);
             int direitaTarget = (int) (-650 * COUNTS_PER_MM);
-            double LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-            double RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
             motoref.setTargetPosition(esquerdaTarget);
             motoret.setTargetPosition(esquerdaTarget);
@@ -163,8 +162,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                  esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
                  direitaTarget = (int) (-400 * COUNTS_PER_MM);
-                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
-                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -198,8 +196,6 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
                 direitaTarget = (int) (420 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -237,8 +233,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-125 * COUNTS_PER_MM);
                 direitaTarget = (int) (-125 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -279,8 +274,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (140 * COUNTS_PER_MM);
                 direitaTarget = (int) (140 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -319,8 +313,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (400 * COUNTS_PER_MM);
                 direitaTarget = (int) (-400 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -353,8 +346,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-280 * COUNTS_PER_MM);
                 direitaTarget = (int) (-280 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -387,8 +379,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
                 direitaTarget = (int) (400 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -422,8 +413,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-600 * COUNTS_PER_MM);
                 direitaTarget = (int) (-600 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -459,8 +449,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
                 direitaTarget = (int) (-400 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -494,8 +483,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
                 direitaTarget = (int) (420 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -533,8 +521,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-125 * COUNTS_PER_MM);
                 direitaTarget = (int) (-125 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -575,8 +562,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (140 * COUNTS_PER_MM);
                 direitaTarget = (int) (140 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -617,8 +603,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
                 direitaTarget = (int) (-400 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -652,8 +637,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
                 direitaTarget = (int) (420 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -691,8 +675,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-125 * COUNTS_PER_MM);
                 direitaTarget = (int) (-125 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -733,8 +716,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (140 * COUNTS_PER_MM);
                 direitaTarget = (int) (140 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -773,8 +755,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (400 * COUNTS_PER_MM);
                 direitaTarget = (int) (-400 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -807,8 +788,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-280 * COUNTS_PER_MM);
                 direitaTarget = (int) (-280 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -841,8 +821,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (500 * COUNTS_PER_MM);
                 direitaTarget = (int) (-500 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -876,8 +855,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
 
                 esquerdaTarget = (int) (-600 * COUNTS_PER_MM);
                 direitaTarget = (int) (-600 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
