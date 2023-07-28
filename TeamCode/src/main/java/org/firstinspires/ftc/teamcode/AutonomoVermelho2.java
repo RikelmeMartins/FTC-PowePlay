@@ -27,7 +27,7 @@ public class AutonomoVermelho2 extends LinearOpMode {
     RevColorSensorV3 sensor_cor;
     BNO055IMU imu;
     Orientation lastAngles = new Orientation();
-    double                  globalAngle, power = .30, correction;
+    double                  globalAngle, power = .50, correction;
 
     static final double     COUNTS_PER_MOTOR_REV    = 28.0;
     static final double     DRIVE_GEAR_REDUCTION    = 30.24;

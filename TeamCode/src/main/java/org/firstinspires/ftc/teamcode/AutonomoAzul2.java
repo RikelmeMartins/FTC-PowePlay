@@ -27,7 +27,7 @@ public class AutonomoAzul2 extends LinearOpMode {
     RevColorSensorV3 sensor_cor;
     BNO055IMU imu;
     Orientation lastAngles = new Orientation();
-    double                  globalAngle, power = .30, correction;
+    double                  globalAngle, power = .5, correction;
 
     static final double     COUNTS_PER_MOTOR_REV    = 28.0;
     static final double     DRIVE_GEAR_REDUCTION    = 30.24;
@@ -116,8 +116,8 @@ public class AutonomoAzul2 extends LinearOpMode {
             motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            int esquerdaTarget = (int) (-650 * COUNTS_PER_MM);
-            int direitaTarget = (int) (-650 * COUNTS_PER_MM);
+            int esquerdaTarget = (int) (-580 * COUNTS_PER_MM);
+            int direitaTarget = (int) (-580 * COUNTS_PER_MM);
             double LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
             double RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -135,6 +135,21 @@ public class AutonomoAzul2 extends LinearOpMode {
             motordt.setPower(-power + correction);
             motoref.setPower(power - correction);
             motoret.setPower(power - correction);
+            /*double error = 0;
+            double alvo = 0.5;
+            double saida = 0;
+
+            while(power <=.4){
+                error = alvo - power;
+                saida = error*0.9;
+                power = saida;
+
+                motordf.setPower(-power + correction);
+                motordt.setPower(-power + correction);
+                motoref.setPower(power - correction);
+                motoret.setPower(power - correction);
+            }*/
+
 
 
 
@@ -161,8 +176,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                 esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
-                 direitaTarget = (int) (-400 * COUNTS_PER_MM);
+                 esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
+                 direitaTarget = (int) (-420 * COUNTS_PER_MM);
                  LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
                  RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
 
@@ -196,8 +211,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
-                direitaTarget = (int) (420 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-380 * COUNTS_PER_MM);
+                direitaTarget = (int) (380 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -224,10 +239,10 @@ public class AutonomoAzul2 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                while (garra.getCurrentPosition() < 3390) {
-                    garra.setTargetPosition(3390);
+                while (garra.getCurrentPosition() < 3200) {
+                    garra.setTargetPosition(3200);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                    garra.setPower(0.5);
+                    garra.setPower(0.7);
                 }
 
                 motordf.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -235,8 +250,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-125 * COUNTS_PER_MM);
-                direitaTarget = (int) (-125 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-90 * COUNTS_PER_MM);
+                direitaTarget = (int) (-90 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -277,10 +292,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (140 * COUNTS_PER_MM);
-                direitaTarget = (int) (140 * COUNTS_PER_MM);
-                LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-                RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
+                esquerdaTarget = (int) (90 * COUNTS_PER_MM);
+                direitaTarget = (int) (90 * COUNTS_PER_MM);
 
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
@@ -311,145 +324,152 @@ public class AutonomoAzul2 extends LinearOpMode {
                     garra.setPower(0.5);
                 }
 
-                //Giro
                 motordf.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motordt.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                esquerdaTarget = (int) (400 * COUNTS_PER_MM);
-                direitaTarget = (int) (-400 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (400 *
+                        COUNTS_PER_MM);
+                direitaTarget = (int) (-400 *
+                        COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
                 motordf.setTargetPosition(direitaTarget);
                 motordt.setTargetPosition(direitaTarget);
-
                 motoref.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motoret.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordf.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordt.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
                 motordf.setPower(-power + correction);
                 motordt.setPower(-power + correction);
                 motoref.setPower(power - correction);
                 motoret.setPower(power - correction);
-
-                //Trás
-                while (opModeIsActive() && (motordf.isBusy() && motordt.isBusy() && motoref.isBusy() && motoret.isBusy())) {
-                    telemetry.addData("motordf:", motordf.getCurrentPosition());
-                    telemetry.addData("motordt:", motordt.getCurrentPosition());
-                    telemetry.addData("motoref:", motoref.getCurrentPosition());
-                    telemetry.addData("motoret:", motoret.getCurrentPosition());
+//Trás
+                while (opModeIsActive() &&
+                        (motordf.isBusy() && motordt.isBusy() && motoref.isBusy()
+                                && motoret.isBusy())) {
+                    telemetry.addData("motordf:",
+                            motordf.getCurrentPosition());
+                    telemetry.addData("motordt:",
+                            motordt.getCurrentPosition());
+                    telemetry.addData("motoref:",
+                            motoref.getCurrentPosition());
+                    telemetry.addData("motoret:",
+                            motoret.getCurrentPosition());
                     telemetry.update();
                 }
-
                 motordf.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motordt.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                esquerdaTarget = (int) (-280 * COUNTS_PER_MM);
-                direitaTarget = (int) (-280 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-280 *
+                        COUNTS_PER_MM);
+                direitaTarget = (int) (-280 *
+                        COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
                 motordf.setTargetPosition(direitaTarget);
                 motordt.setTargetPosition(direitaTarget);
-
                 motoref.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motoret.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordf.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordt.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
                 motordf.setPower(-power + correction);
                 motordt.setPower(-power + correction);
                 motoref.setPower(power - correction);
                 motoret.setPower(power - correction);
-
-                while (opModeIsActive() && (motordf.isBusy() && motordt.isBusy() && motoref.isBusy() && motoret.isBusy())) {
-                    telemetry.addData("motordf:", motordf.getCurrentPosition());
-                    telemetry.addData("motordt:", motordt.getCurrentPosition());
-                    telemetry.addData("motoref:", motoref.getCurrentPosition());
-                    telemetry.addData("motoret:", motoret.getCurrentPosition());
+                while (opModeIsActive() &&
+                        (motordf.isBusy() && motordt.isBusy() && motoref.isBusy()
+                                && motoret.isBusy())) {
+                    telemetry.addData("motordf:",
+                            motordf.getCurrentPosition());
+                    telemetry.addData("motordt:",
+                            motordt.getCurrentPosition());
+                    telemetry.addData("motoref:",
+                            motoref.getCurrentPosition());
+                    telemetry.addData("motoret:",
+                            motoret.getCurrentPosition());
                     telemetry.update();
                 }
-
-                //Giro
+//Giro
                 motordf.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motordt.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
-                direitaTarget = (int) (400 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-400 *
+                        COUNTS_PER_MM);
+                direitaTarget = (int) (400 *
+                        COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
                 motordf.setTargetPosition(direitaTarget);
                 motordt.setTargetPosition(direitaTarget);
-
                 motoref.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motoret.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordf.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordt.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
                 motordf.setPower(-power + correction);
                 motordt.setPower(-power + correction);
                 motoref.setPower(power - correction);
                 motoret.setPower(power - correction);
-
-
-                while (opModeIsActive() && (motordf.isBusy() && motordt.isBusy() && motoref.isBusy() && motoret.isBusy())) {
-                    telemetry.addData("motordf:", motordf.getCurrentPosition());
-                    telemetry.addData("motordt:", motordt.getCurrentPosition());
-                    telemetry.addData("motoref:", motoref.getCurrentPosition());
-                    telemetry.addData("motoret:", motoret.getCurrentPosition());
+                while (opModeIsActive() &&
+                        (motordf.isBusy() && motordt.isBusy() && motoref.isBusy()
+                                && motoret.isBusy())) {
+                    telemetry.addData("motordf:",
+                            motordf.getCurrentPosition());
+                    telemetry.addData("motordt:",
+                            motordt.getCurrentPosition());
+                    telemetry.addData("motoref:",
+                            motoref.getCurrentPosition());
+                    telemetry.addData("motoret:",
+                            motoret.getCurrentPosition());
                     telemetry.update();
                 }
-
-                //Giro
+//Giro
                 motordf.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motordt.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                esquerdaTarget = (int) (-600 * COUNTS_PER_MM);
-                direitaTarget = (int) (-600 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-600 *
+                        COUNTS_PER_MM);
+                direitaTarget = (int) (-600 *
+                        COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
-
                 motoref.setTargetPosition(esquerdaTarget);
                 motoret.setTargetPosition(esquerdaTarget);
                 motordf.setTargetPosition(direitaTarget);
                 motordt.setTargetPosition(direitaTarget);
-
                 motoref.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motoret.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordf.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                 motordt.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
                 motordf.setPower(-power + correction);
                 motordt.setPower(-power + correction);
                 motoref.setPower(power - correction);
                 motoret.setPower(power - correction);
-
-                //Trás
-                while (opModeIsActive() && (motordf.isBusy() && motordt.isBusy() && motoref.isBusy() && motoret.isBusy())) {
-                    telemetry.addData("motordf:", motordf.getCurrentPosition());
-                    telemetry.addData("motordt:", motordt.getCurrentPosition());
-                    telemetry.addData("motoref:", motoref.getCurrentPosition());
-                    telemetry.addData("motoret:", motoret.getCurrentPosition());
+//Trás
+                while (opModeIsActive() &&
+                        (motordf.isBusy() && motordt.isBusy() && motoref.isBusy()
+                                && motoret.isBusy())) {
+                    telemetry.addData("motordf:",
+                            motordf.getCurrentPosition());
+                    telemetry.addData("motordt:",
+                            motordt.getCurrentPosition());
+                    telemetry.addData("motoref:",
+                            motoref.getCurrentPosition());
+                    telemetry.addData("motoret:",
+                            motoret.getCurrentPosition());
                     telemetry.update();
                 }
-
             }
+
             if (sensor_cor.red() > sensor_cor.green() && sensor_cor.red() > sensor_cor.blue()){
                 telemetry.addData("Nivel:", 2);
                 motordf.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -457,8 +477,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
-                direitaTarget = (int) (-400 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
+                direitaTarget = (int) (-420 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
 
@@ -492,8 +512,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
-                direitaTarget = (int) (420 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-380 * COUNTS_PER_MM);
+                direitaTarget = (int) (380 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -520,8 +540,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                while (garra.getCurrentPosition() < 3390) {
-                    garra.setTargetPosition(3390);
+                while (garra.getCurrentPosition() < 3200) {
+                    garra.setTargetPosition(3200);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     garra.setPower(0.5);
                 }
@@ -531,8 +551,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-125 * COUNTS_PER_MM);
-                direitaTarget = (int) (-125 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-90 * COUNTS_PER_MM);
+                direitaTarget = (int) (-90 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -615,8 +635,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
-                direitaTarget = (int) (-400 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
+                direitaTarget = (int) (-420 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
 
@@ -650,8 +670,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
-                direitaTarget = (int) (420 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-380 * COUNTS_PER_MM);
+                direitaTarget = (int) (380 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -678,8 +698,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                while (garra.getCurrentPosition() < 3390) {
-                    garra.setTargetPosition(3390);
+                while (garra.getCurrentPosition() < 3200) {
+                    garra.setTargetPosition(3200);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     garra.setPower(0.5);
                 }
@@ -689,8 +709,8 @@ public class AutonomoAzul2 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-125 * COUNTS_PER_MM);
-                direitaTarget = (int) (-125 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-90 * COUNTS_PER_MM);
+                direitaTarget = (int) (-90 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -948,7 +968,7 @@ public class AutonomoAzul2 extends LinearOpMode {
         // The gain value determines how sensitive the correction is to direction changes.
         // You will have to experiment with your robot to get small smooth direction changes
         // to stay on a straight line.
-        double correction, angle, gain = .10;
+        double correction, angle, gain = .5;//MUDEI AQUI
 
         angle = getAngle();
 

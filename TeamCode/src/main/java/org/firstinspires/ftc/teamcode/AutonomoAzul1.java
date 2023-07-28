@@ -27,7 +27,7 @@ public class AutonomoAzul1 extends LinearOpMode {
     RevColorSensorV3 sensor_cor;
     BNO055IMU imu;
     Orientation lastAngles = new Orientation();
-    double                  globalAngle, power = .30, correction;
+    double                  globalAngle, power = .50, correction;
 
     static final double     COUNTS_PER_MOTOR_REV    = 28.0;
     static final double     DRIVE_GEAR_REDUCTION    = 30.24;
@@ -116,8 +116,8 @@ public class AutonomoAzul1 extends LinearOpMode {
             motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            int esquerdaTarget = (int) (-650 * COUNTS_PER_MM);
-            int direitaTarget = (int) (-650 * COUNTS_PER_MM);
+            int esquerdaTarget = (int) (-580 * COUNTS_PER_MM);
+            int direitaTarget = (int) (-580 * COUNTS_PER_MM);
             double LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
             double RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -161,8 +161,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                 esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
-                 direitaTarget = (int) (-400 * COUNTS_PER_MM);
+                 esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
+                 direitaTarget = (int) (-420 * COUNTS_PER_MM);
                  LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
                  RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
 
@@ -196,8 +196,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (420 * COUNTS_PER_MM);
-                direitaTarget = (int) (-420 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (380 * COUNTS_PER_MM);
+                direitaTarget = (int) (-380 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -224,8 +224,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                while (garra.getCurrentPosition() < 3390) {
-                    garra.setTargetPosition(3390);
+                while (garra.getCurrentPosition() < 3200) {
+                    garra.setTargetPosition(3200);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     garra.setPower(0.5);
                 }
@@ -235,8 +235,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-150 * COUNTS_PER_MM);
-                direitaTarget = (int) (-150 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-90 * COUNTS_PER_MM);
+                direitaTarget = (int) (-90 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -491,8 +491,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
-                direitaTarget = (int) (-400 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
+                direitaTarget = (int) (-420 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
 
@@ -526,8 +526,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (420 * COUNTS_PER_MM);
-                direitaTarget = (int) (-420 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (380 * COUNTS_PER_MM);
+                direitaTarget = (int) (-380 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -554,8 +554,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                while (garra.getCurrentPosition() < 3390) {
-                    garra.setTargetPosition(3390);
+                while (garra.getCurrentPosition() < 3200) {
+                    garra.setTargetPosition(3200);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     garra.setPower(0.5);
                 }
@@ -565,8 +565,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-150 * COUNTS_PER_MM);
-                direitaTarget = (int) (-150 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-90 * COUNTS_PER_MM);
+                direitaTarget = (int) (-90 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -649,8 +649,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-400 * COUNTS_PER_MM);
-                direitaTarget = (int) (-400 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-420 * COUNTS_PER_MM);
+                direitaTarget = (int) (-420 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV * 0.3;
 
@@ -684,8 +684,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (420 * COUNTS_PER_MM);
-                direitaTarget = (int) (-420 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (380 * COUNTS_PER_MM);
+                direitaTarget = (int) (-380 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
@@ -712,8 +712,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                     telemetry.update();
                 }
 
-                while (garra.getCurrentPosition() < 3390) {
-                    garra.setTargetPosition(3390);
+                while (garra.getCurrentPosition() < 3200) {
+                    garra.setTargetPosition(3200);
                     garra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
                     garra.setPower(0.5);
                 }
@@ -723,8 +723,8 @@ public class AutonomoAzul1 extends LinearOpMode {
                 motoref.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 motoret.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                esquerdaTarget = (int) (-150 * COUNTS_PER_MM);
-                direitaTarget = (int) (-150 * COUNTS_PER_MM);
+                esquerdaTarget = (int) (-90 * COUNTS_PER_MM);
+                direitaTarget = (int) (-90 * COUNTS_PER_MM);
                 LTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
                 RTPS = (175 / 60) * COUNTS_PER_WHEEL_REV;
 
